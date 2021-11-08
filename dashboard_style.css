@@ -1,0 +1,19 @@
+.header{
+    background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
+    display: flex;
+    flex-direction: column;
+    height: 450px;
+}
+.header .nav{
+    height: 100px;
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.header .add-items{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 350px;
+}
