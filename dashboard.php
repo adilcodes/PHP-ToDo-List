@@ -44,7 +44,8 @@ if(isset($_GET["user_mail"])){
                     <input type="submit" name="add" value="Add" class="btn btn-primary ml-2"> -->
                     <form class="form-inline col-lg-8 d-flex justify-content-center" method="post" action="add_item_process.php">
                         <div class="form-group mb-2 col-lg-8 ">
-                            <input type="text" class="form-control col-lg-12" placeholder="Add To Do items Here">
+                            <input type="hidden" name="user_id" value="<?php echo $user_id; ?>">
+                            <input type="text" name="item" class="form-control col-lg-12" placeholder="Add To Do items Here">
                         </div>
                         <input type="submit" name="add_item" value="Add" class="btn btn-primary mb-2">
                     </form>
