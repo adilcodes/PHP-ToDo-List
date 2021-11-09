@@ -74,6 +74,13 @@ session_start();
            }
          ?>
         </span>
+        <span style="color:#333; font-size:16px;">
+         <?php
+           if(isset($_GET["successmsg"])){
+               echo $_GET['successmsg'];
+           }
+         ?>
+        </span>
 
         <!-- php code to login -->
 

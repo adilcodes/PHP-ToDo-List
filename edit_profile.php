@@ -10,11 +10,12 @@ if(isset($_GET["user_id"])){
 $query="SELECT * FROM users WHERE user_id=$user_id";
 $result=mysqli_query($connect,$query);
 
-$row=mysqli_fetch_array($result);
+while($row=mysqli_fetch_array($result)){
      $user_id=$row["user_id"];
      $user_name=$row["user_name"];
      $user_mail=$row["user_mail"];
      $user_password=$row["user_password"];
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
