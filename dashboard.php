@@ -37,7 +37,7 @@ if(isset($_GET["user_mail"])){
             <div class="col-lg-12 header">
                 <div class="nav">
                     <button class="btn"><a style="text-decoration:none; color:#000;" href="logout.php">Log Out</a></button>
-                    <button class="btn ml-2"><a style="text-decoration:none; color:#000;" href="edit_profile.php?user_id='<?php echo $user_id; ?>'">Edit Profile</a></button>
+                    <button class="btn ml-2"><a style="text-decoration:none; color:#000;" href="edit_profile.php?user_id='<?php echo $_SESSION["user_id"]; ?>'">Edit Profile</a></button>
                 </div>
                 <div class="add-items">
                     <!-- <input type="text" class="form-control col-lg-4" placeholder="Add To-Do item">
@@ -68,13 +68,14 @@ if(isset($_GET["user_mail"])){
 
                         $result=mysqli_query($connect,$query);    
 
-                        while($row=mysqli_fetch_array($result)){	
+                        while($row=mysqli_fetch_array($result)){
+                        $item_id = $row["item_id"];
                         $item = $row["item"]; //Fetching only todo items from the database
                         ?>
                         <tr>
                         <th scope="row"><?php echo $i++; ?></th>
                         <td><?php echo $item; ?></td>
-                        <td><a href="delete_item.php"><button class="btn btn-danger" name="delete">Delete</button></a></td>
+                        <td><a href="delete_item.php?item_id=<?php echo $item_id; ?>"><button class="btn btn-danger" name="delete">Delete</button></a></td>
                         <?php }?>
                         </tr>
                     </tbody>

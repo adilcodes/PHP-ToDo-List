@@ -2,6 +2,12 @@
 include "database.php";
 session_start();
 
+if($_SESSION["u_mail"]==true){
+    echo "";
+}else{
+    header("location:login.php");
+}
+
 if(isset($_POST["add_item"])){
     $user_id = $_POST["user_id"];
     $item=$_POST["item"];
