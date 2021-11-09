@@ -64,8 +64,7 @@ if(isset($_GET["user_mail"])){
                         <!-- Fetching data from "todoitems" table of database -->
                         <?php
                         $i = 1;
-                        $query="SELECT * FROM todoitems";
-
+                        $query="SELECT * FROM todoitems WHERE user_id= " . $_SESSION['user_id'];
                         $result=mysqli_query($connect,$query);    
 
                         while($row=mysqli_fetch_array($result)){

@@ -18,6 +18,8 @@ if(isset($_POST["add_item"])){
         header("location:dashboard.php");
     }else{
         echo "item not added. Try again <a href='dashboard.php'>Go Back</a>";
+        echo "<br/>";
+        echo "Note: Don't Use Quotation marks if you are using.";
     }
 }
 ?>
