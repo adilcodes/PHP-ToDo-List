@@ -2,7 +2,11 @@
 //Fetching data of the specific user by id who want to update his/her profile...
 include "database.php";
 session_start();
-
+if($_SESSION["u_mail"]==true){
+    echo "";
+}else{
+    header("location:login.php");
+}
 if(isset($_GET["user_id"])){
     $user_id=$_GET["user_id"];
 }

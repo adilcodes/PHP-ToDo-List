@@ -1,7 +1,11 @@
 <?php
 include "database.php";
 session_start();
-
+if($_SESSION["u_mail"]==true){
+    echo "";
+}else{
+    header("location:login.php");
+}
 if(isset($_POST["edit_profile"])){
     $user_id=$_POST["user_id"];
     $user_name=$_POST["user_name"];

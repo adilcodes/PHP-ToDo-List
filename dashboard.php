@@ -2,6 +2,13 @@
 // Fetching the id of the user who just logged in through his/her email which we sent through the url from the login page and get here by $_GET...we fetch the id here because we have to update the user data when he/she will click the edit profile button the id of the user that we fetch her will go through the url to edit page
 include "database.php";
 session_start();
+
+if($_SESSION["u_mail"]==true){
+    echo "";
+}else{
+    header("location:login.php");
+}
+
 if(isset($_GET["user_mail"])){
     $mail = $_GET["user_mail"];
     $query = "SELECT * FROM users WHERE user_mail='$mail'";

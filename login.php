@@ -96,14 +96,13 @@ session_start();
         $rowcount = mysqli_num_rows($result);
 
         if($rowcount==true){
+            $_SESSION["u_mail"]=$u_mail;
             header("location:dashboard.php?user_mail=$u_mail");
         }else{
             echo "<script>alert('Your email or password is incorrect')</script>";
         }
     
     }
-
-
     ?>
 
 
