@@ -14,7 +14,7 @@ if(isset($_GET["user_mail"])){
     $query = "SELECT * FROM users WHERE user_mail='$mail'";
     $result = mysqli_query($connect, $query);
     $row=mysqli_fetch_array($result);
-    $user_id=$row["user_id"];
+    $_SESSION["user_id"]=$row["user_id"];
 }
 ?>
 <!-- html started -->
@@ -44,14 +44,14 @@ if(isset($_GET["user_mail"])){
                     <input type="submit" name="add" value="Add" class="btn btn-primary ml-2"> -->
                     <form class="form-inline col-lg-8 d-flex justify-content-center" method="post" action="add_item_process.php">
                         <div class="form-group mb-2 col-lg-8 ">
-                            <input type="hidden" name="user_id" value="<?php echo $user_id; ?>">
+                            <input type="hidden" name="user_id" value="<?php echo $_SESSION["user_id"];?>">
                             <input type="text" name="item" class="form-control col-lg-12" placeholder="Add To Do items Here">
                         </div>
                         <input type="submit" name="add_item" value="Add" class="btn btn-primary mb-2">
                     </form>
                 </div>
             </div>
-            <div class="col-lg-12">
+            <div class="col-lg-12 data">
                 <table class="table">
                     <thead>
                         <tr>
@@ -61,10 +61,21 @@ if(isset($_GET["user_mail"])){
                         </tr>
                     </thead>
                     <tbody>
+                        <!-- Fetching data from "todoitems" table of database -->
+                        <?php
+                        $i = 1;
+                        $query="SELECT * FROM todoitems";
+
+                        $result=mysqli_query($connect,$query);    
+
+                        while($row=mysqli_fetch_array($result)){	
+                        $item = $row["item"]; //Fetching only todo items from the database
+                        ?>
                         <tr>
-                        <th scope="row">1</th>
-                        <td>Wake-up at 10:00am</td>
-                        <td><button class="btn btn-danger" name="delete">Delete</button></td>
+                        <th scope="row"><?php echo $i++; ?></th>
+                        <td><?php echo $item; ?></td>
+                        <td><a href="delete_item.php"><button class="btn btn-danger" name="delete">Delete</button></a></td>
+                        <?php }?>
                         </tr>
                     </tbody>
                 </table>
