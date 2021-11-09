@@ -1,3 +1,16 @@
+<?php
+// Fetching the id of the user who just logged in through his/her email which we sent through the url from the login page and get here by $_GET...we fetch the id here because we have to update the user data when he/she will click the edit profile button the id of the user that we fetch her will go through the url to edit page
+include "database.php";
+session_start();
+if(isset($_GET["user_mail"])){
+    $mail = $_GET["user_mail"];
+    $query = "SELECT * FROM users WHERE user_mail='$mail'";
+    $result = mysqli_query($connect, $query);
+    $row=mysqli_fetch_array($result);
+    $user_id=$row["user_id"];
+}
+?>
+<!-- html started -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,8 +29,8 @@
         <div class="row">
             <div class="col-lg-12 header">
                 <div class="nav">
-                    <button class="btn">Log Out</button>
-                    <button class="btn ml-2">Edit Profile</button>
+                    <button class="btn"><a style="text-decoration:none; color:#000;" href="logout.php">Log Out</a></button>
+                    <button class="btn ml-2"><a style="text-decoration:none; color:#000;" href="edit_profile.php?user_id='<?php echo $user_id; ?>'">Edit Profile</a></button>
                 </div>
                 <div class="add-items">
                     <input type="text" class="form-control col-lg-4" placeholder="Add To-Do item">

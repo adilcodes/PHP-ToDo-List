@@ -52,8 +52,8 @@
             <!-- Getting msg from url(if repeat password is incorrect) -->
             <span style="color:red; font-size:16px;">
                     <?php
-                            if(isset($_GET["msg"])){
-                                echo $_GET['msg'];
+                            if(isset($_GET["wrongpass"])){
+                                echo $_GET['wrongpass'];
                             }
                     ?>
             </span>
