@@ -24,7 +24,7 @@ include "database.php";
                                    header("location:index.php?msg=Something went wrong Try again!");
                             }
                                                         }else{
-                                                               header("location:Registration.php?wrongpass=Your repeat password is incorrect. Try again");
+                                                               header("location:index.php?wrongpass=Your repeat password is incorrect. Try again");
                                                         }
                                    }
 
